@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>Fahasa</h1>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#categories">Thể loại</a></li>
+                <li><a href="#bestsellers">Bán chạy</a></li>
+                <li><a href="#account" id="account-btn">Tài khoản</a></li>
+                <li><a href="#" id="livestream-btn">Livestream</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Chào mừng đến với hiệu sách trực tuyến yêu thích của bạn</h2>
+            <p>Khám phá hàng ngàn cuốn sách với nhiều thể loại phong phú</p>
+            <a href="#categories" class="cta-button">Khám phá</a>
+        </div>
+    </section>
+    <section id="categories" class="categories">
+        <h2>Thể loại</h2>
+        <div class="category-list">
+            <div class="category-item">Viễn tưởng</div>
+            <div class="category-item">Tiểu thuyết</div>
+            <div class="category-item">Khoa học</div>
+            <div class="category-item">Trẻ em</div>
+        </div>
+    </section>
+    <section id="bestsellers" class="bestsellers">
+        <h2>Bán chạy</h2>
+        <div class="book-list">
+            <div class="book-item">
+                <img src="book1.jpg" alt="Book 1">
+                <h3>Đừng Lựa Chọn An Nhàn Khi Còn Trẻ</h3>
+                <p>99.000₫</p>
+                <input type="button" id="" value="Mua ngay" data-price="99000">
+            </div>
+            <div class="book-item">
+                <img src="book2.jpg" alt="Book 2">
+                <h3>Sách Muôn Kiếp Nhân Sinh</h3>
+                <p>97.449₫</p>
+                <input type="button" id="" value="Mua ngay" data-price="97449">
+            </div>
+            <div class="book-item">
+                <img src="book3.jpg" alt="Book 3">
+                <h3>Nóng Giận Là Bản Năng , Tĩnh Lặng Là Bản Lĩnh</h3>
+                <p>55.163₫</p>
+                <input type="button" id="" value="Mua ngay" data-price="55163">
+            </div>
+        </div>
+    </section>
+    <div id="account-modal" class="account-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Tài Khoản</h2>
+            <div class="account-info">
+                <h3>Thông tin cá nhân</h3>
+                <p><strong>Name:</strong> Tô Đức Kiên</p>
+                <p><strong>Email:</strong> kienbgz1@gmail.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <h3>Lịch sử mua hàng</h3>
+                <ul>
+                    <li>Đừng Lựa Chọn An Nhàn Khi Còn Trẻ - 99.000₫</li>
+                    <li>Sách Muôn Kiếp Nhân Sinh - 97.449₫</li>
+                    <li>Nóng Giận Là Bản Năng , Tĩnh Lặng Là Bản Lĩnh -55.163₫</li>
+                </ul>
+                <div class="reward-points">
+                    <h3>Điểm thưởng</h3>
+                    <p>Bạn đang có <span id="reward-points">500</span> điểm.</p>
+                    <button id="redeem-points-button" onclick="redeemPoints()">Đổi điểm</button>
+                    <div id="redeem-section" style="display:none;">
+                        <label for="points-to-redeem">Số điểm bạn muốn đổi:</label>
+                        <input type="number" id="points-to-redeem" min="1">
+                        <button onclick="confirmRedemption()">Xác nhận đổi</button>
+                    </div>
+                </div>
+                <button class="cta-button">Chỉnh sửa thông tin</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal to show products available for redemption -->
+    <div id="redeem-products-modal" class="redeem-products-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Sản Phẩm Đổi Điểm</h2>
+            <div class="redeem-product-list">
+                <div class="redeem-product">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>200000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="200000">
+                </div>
+                <div class="redeem-product">
+                    <img src="product2.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>150000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="150000">
+                </div>
+                <div class="redeem-product">
+                    <img src="product3.jpg" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p>300000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="300000">
+                </div>
+                <div class="redeem-product">
+                    <img src="product4.jpg" alt="Product 4">
+                    <h3>Product 4</h3>
+                    <p>500000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="500000">
+                </div>
+                <div class="redeem-product">
+                    <img src="product5.jpg" alt="Product 5">
+                    <h3>Product 5</h3>
+                    <p>155000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="155000">
+                </div>
+                <div class="redeem-product">
+                    <img src="product6.jpg" alt="Product 6">
+                    <h3>Product 6</h3>
+                    <p>500000 điểm</p>
+                    <input type="button" value="Đổi" class="redeem-button" data-points="300">
+                </div>
+            </div>
+            <button onclick="closeRedeemModal()">Đóng</button>
+        </div>
+    </div>
+    <div id="livestream-modal" class="livestream-modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Tạo Livestream</h2>
+            <form id="livestream-form">
+                <label for="title">Tiêu Đề:</label>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="description">Miêu Tả:</label>
+                <textarea id="description" name="description" required></textarea><br><br>
+                <label for="date">Ngày:</label>
+                <input type="date" id="date" name="date" required><br><br>
+                <label for="time">Giờ:</label>
+                <input type="time" id="time" name="time" required><br><br>
+                <button type="submit">Bắt đầu Livestream</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Cửa sổ hiển thị các mặt hàng -->
+    <div id="livestream-products-modal" class="livestream-products-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Sản phẩm trong Livestream</h2>
+            <div class="product-list">
+                <div class="product-item">
+                    <img src="book1.jpg" alt="Book 1">
+                    <h3>Đừng Lựa Chọn An Nhàn Khi Còn Trẻ</h3>
+                    <p>99.000₫</p>
+                    <button>Mua ngay</button>
+                </div>
+                <div class="product-item">
+                    <img src="book2.jpg" alt="Book 2">
+                    <h3>Sách Muôn Kiếp Nhân Sinh</h3>
+                    <p>97.449₫</p>
+                    <button>Mua ngay</button>
+                </div>
+            </div>
+            <button onclick="closeLivestreamProducts()">Đóng</button> <!-- Close button for the modal -->
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Fahasa.com Thế giới sách</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+    <script>
+        const livestreamBtn = document.getElementById('livestream-btn');
+        const livestreamModal = document.getElementById('livestream-modal');
+        const accountBtn = document.getElementById('account-btn');
+        const accountModal = document.getElementById('account-modal');
+        const redeemProductsModal = document.getElementById('redeem-products-modal');
+        const closeButtons = document.querySelectorAll('.close-button');
+
+        livestreamBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            livestreamModal.style.display = 'block';
+        });
+
+        accountBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            accountModal.style.display = 'block';
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                livestreamModal.style.display = 'none';
+                accountModal.style.display = 'none';
+                redeemProductsModal.style.display = 'none'; 
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === livestreamModal) {
+                livestreamModal.style.display = 'none';
+            }
+            if (e.target === accountModal) {
+                accountModal.style.display = 'none';
+            }
+            if (e.target === redeemProductsModal) {
+                redeemProductsModal.style.display = 'none';
+            }
+        });
+        document.getElementById('livestream-form').addEventListener('submit', (event) => {
+        event.preventDefault(); // Ngăn việc reload trang
+
+        // Ẩn modal tạo livestream và hiển thị modal sản phẩm
+        document.getElementById('livestream-modal').style.display = 'none';
+        document.getElementById('livestream-products-modal').style.display = 'block';
+        });
+
+        function closeLivestreamProducts() {
+        document.getElementById('livestream-products-modal').style.display = 'none';
+        }
+        function redeemPoints() {
+            // Hiển thị phần đổi sản phẩm
+            redeemProductsModal.style.display = 'block';
+        }
+
+        function closeRedeemModal() {
+            redeemProductsModal.style.display = 'none';
+        }
+
+        let currentPoints = 500;
+
+        function confirmRedemption() {
+            let pointsToRedeem = parseInt(document.getElementById('points-to-redeem').value);
+            
+            if (isNaN(pointsToRedeem) || pointsToRedeem <= 0) {
+                alert("Please enter a valid number of points to redeem.");
+                return;
+            }
+
+            if (pointsToRedeem > currentPoints) {
+                alert("You do not have enough points to redeem.");
+            } else {
+                // Giảm số điểm và hiển thị thông báo
+                currentPoints -= pointsToRedeem;
+                document.getElementById('reward-points').textContent = currentPoints;
+                alert("You have successfully redeemed " + pointsToRedeem + " points.");
+                
+                // Ẩn phần đổi điểm
+                document.getElementById('redeem-section').style.display = 'none';
+            }
+        }
+        function accumulatePoints(purchaseAmount) {
+            // Giả sử tích lũy 
+            let pointsEarned = Math.floor(purchaseAmount /10000);
+            currentPoints += pointsEarned;
+            document.getElementById('reward-points').textContent = currentPoints;
+            alert("You have earned " + pointsEarned + " points for your purchase!");
+        };
+        function handlePurchase(event) {
+    const button = event.target;
+    const productPrice = parseInt(button.getAttribute('data-price'));
+
+    if (!isNaN(productPrice)) {
+        // Tích lũy điểm 
+        let pointsEarned = Math.floor(productPrice /10000);
+        currentPoints += pointsEarned;
+        
+        // Cập nhật số điểm hiển thị
+        document.getElementById('reward-points').textContent = currentPoints;
+
+        // Thông báo thành công
+        alert(`Bạn đã mua sản phẩm thành công và nhận được ${pointsEarned} điểm!`);
+    } else {
+        alert("Có lỗi xảy ra, không thể tính điểm.");
+    }
+}
+
+// Gán sự kiện cho các nút "Mua ngay"
+document.querySelectorAll('.book-item input[type="button"]').forEach(button => {
+    button.addEventListener('click', handlePurchase);
+});
+document.querySelectorAll('.redeem-button').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const pointsRequired = parseInt(button.getAttribute('data-points'));
+
+        if (!isNaN(pointsRequired)) {
+            if (currentPoints >= pointsRequired) {
+                currentPoints -= pointsRequired;
+                document.getElementById('reward-points').textContent = currentPoints;
+                alert(`Bạn đã đổi sản phẩm thành công và bị trừ ${pointsRequired} điểm.`);
+            } else {
+                alert("Bạn không đủ điểm để đổi sản phẩm này.");
+            }
+        } else {
+            alert("Có lỗi xảy ra, vui lòng thử lại.");
+        }
+    });
+});
+function closeLivestreamProducts() {
+    document.getElementById('livestream-products-modal').style.display = 'none';
+}
+
+// Close the Livestream Products Modal if the user clicks outside the modal content
+window.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('livestream-products-modal')) {
+        closeLivestreamProducts();
+    }
+});
+// Function to handle the purchase and accumulate points when "Mua ngay" button is clicked
+function handleLivestreamPurchase(event) {
+    const button = event.target;
+    const productPrice = parseInt(button.parentElement.querySelector('p').textContent.replace('₫', '').replace('.', '').trim());
+
+    if (!isNaN(productPrice)) {
+        // Calculate the points based on the product price (e.g., 10% of the product price)
+        let pointsEarned = Math.floor(productPrice * 0.1); // Example: 10% of the product price
+        currentPoints += pointsEarned;
+
+        // Update the points display
+        document.getElementById('reward-points').textContent = currentPoints;
+
+        // Notify the user
+        alert(`Bạn đã mua sản phẩm thành công và nhận được ${pointsEarned} điểm!`);
+    } else {
+        alert("Có lỗi xảy ra, không thể tính điểm.");
+    }
+}
+
+// Add event listeners to the "Mua ngay" buttons inside the livestream products modal
+document.querySelectorAll('#livestream-products-modal .product-item button').forEach(button => {
+    button.addEventListener('click', handleLivestreamPurchase);
+});
+    </script>
+</body>
+</html>
